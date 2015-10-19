@@ -8,5 +8,11 @@
     <string name="country_of_residence">Country of Residence: ...</string>
     <string name="mturk_username">Mechanical Turk Username</string>
     <string name="name">Name of User</string>
+    <string name="title_activity_hit">HITActivity</string>
+
+    <string name="hit_name">Name of the HIT</string>
+    <string name="hit_author">Creator of the HIT</string>
+    <string name="hit_description">Description</string>
+    <string name="hit_answer">User's Answer:</string>
 
 </resources>
