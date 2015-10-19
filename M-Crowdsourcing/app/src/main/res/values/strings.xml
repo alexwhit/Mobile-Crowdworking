@@ -4,5 +4,9 @@
     <string name="app_name">M-Crowdsourcing</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="ProfileView">View Profile</string>
+    <string name="country_of_residence">Country of Residence: ...</string>
+    <string name="mturk_username">Mechanical Turk Username</string>
+    <string name="name">Name of User</string>
 
 </resources>

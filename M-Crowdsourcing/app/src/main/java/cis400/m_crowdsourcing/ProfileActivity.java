@@ -5,19 +5,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.parse.*;
-
-
-public class MainActivity extends ActionBarActivity {
+/**
+ * Created by kate on 10/12/15.
+ */
+public class ProfileActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "DKJjvfvhnCGRK0cAdOpJN9MwR7zhIpuYya5xvbuF", "a9iCrTmreZRMhfHbmn35osllgoRe3sDkXJW9sW6l");
 
     }
 
@@ -43,4 +39,7 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
