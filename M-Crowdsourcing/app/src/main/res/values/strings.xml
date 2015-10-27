@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="ProfileView">View Profile</string>
-    <string name="country_of_residence">Country of Residence: ...</string>
+    <string name="country_of_residence">Country of Residence: </string>
     <string name="mturk_username">Mechanical Turk Username</string>
     <string name="name">Name of User</string>
     <string name="title_activity_hit">HITActivity</string>
@@ -13,7 +13,7 @@
     <string name="hit_name">Name of the HIT</string>
     <string name="hit_author">Creator of the HIT</string>
     <string name="hit_description">Description</string>
-    <string name="hit_answer">User's Answer:</string>
+    <string name="hit_answer">User\'s Answer:</string>
     <string name="title_activity_login">login</string>
 
     <!-- Strings related to login -->
@@ -28,5 +28,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_signup">Sign up</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
 
 </resources>

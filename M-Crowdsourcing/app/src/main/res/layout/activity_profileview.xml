@@ -6,8 +6,7 @@
     <TextView android:text="@string/ProfileView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/" />
+        android:gravity="center" />
 
     <TextView android:text="@string/name"
         android:layout_width="match_parent"
@@ -18,8 +17,7 @@
     <TextView android:text="@string/country_of_residence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/" />
+        android:gravity="center" />
 
     <TextView android:text="@string/mturk_username"
         android:layout_width="match_parent"
