@@ -28,7 +28,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:text="Edit" />
+        android:text="Edit"
+        android:onClick="onEditClick"
+        android:id="@+id/change_info" />
 
 
 </LinearLayout>

@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.steven.finalproject.EditAccountActivity"
+    android:orientation="vertical"
+    android:id="@+id/edit_account">
+
+    <EditText android:id="@+id/signup_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Information"
+        android:id="@+id/change_info"
+        android:layout_centerHorizontal="true"
+        android:onClick="onChangeInformationClick"/>
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to profile"
+        android:id="@+id/back_to_profile_button"
+        android:layout_centerHorizontal="true"
+        android:onClick="onBack"/>
+    <TextView android:id="@+id/signup_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ></TextView>
+
+
+</LinearLayout>
