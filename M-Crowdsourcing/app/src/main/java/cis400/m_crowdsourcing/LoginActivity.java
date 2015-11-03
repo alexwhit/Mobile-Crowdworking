@@ -47,7 +47,7 @@ public class LoginActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onSignupClick(View v) {
+    public void onLoginClick(View v) {
         String username = ((EditText) findViewById(R.id.username)).getText().toString();
         String password = ((EditText) findViewById(R.id.password)).getText().toString();
 
@@ -72,7 +72,10 @@ public class LoginActivity extends ActionBarActivity {
                         }
                     }
                 });
+    }
 
-
+    public void onSignUpClick(View v) {
+        Intent i = new Intent(this, SignupActivity.class);
+        startActivity(i);
     }
 }

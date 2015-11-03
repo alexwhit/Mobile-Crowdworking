@@ -39,12 +39,16 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
-                android:onClick="onSignupClick"/>
+                android:onClick="onLoginClick"/>
 
-            <Button android:id="@+id/SignUpButton" style="?android:textAppearanceSmall"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" android:text="@string/action_sign_up"
-                android:textStyle="bold" />
+            <Button android:id="@+id/SignUpButton"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_sign_up"
+                android:textStyle="bold"
+                android:onClick="onSignUpClick"/>
 
         </LinearLayout>
     </ScrollView>
