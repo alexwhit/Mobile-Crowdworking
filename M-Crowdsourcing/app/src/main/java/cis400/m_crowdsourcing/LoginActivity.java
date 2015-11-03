@@ -3,6 +3,7 @@ package cis400.m_crowdsourcing;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -25,9 +26,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 
 /**
@@ -73,11 +80,20 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        Button mLoginButton = (Button) findViewById(R.id.LogInButton);
+        mLoginButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+
+        Button mSignUpButton = (Button) findViewById(R.id.SignUpButton);
+        mSignUpButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getBaseContext(), SignupActivity.class);
+                startActivity(i);
             }
         });
 
@@ -137,14 +153,38 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+
+            // Send data to Parse.com for verification
+            ParseUser.logInInBackground(email, password,
+                    new LogInCallback() {
+                        public void done(ParseUser user, ParseException e) {
+                            if (user != null) {
+
+                                // If user exist and authenticated, send user to Welcome.class
+                                Intent intent = new Intent(
+                                        LoginActivity.this,
+                                        ProfileActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(getApplicationContext(),
+                                        "Successfully Logged in",
+                                        Toast.LENGTH_LONG).show();
+                                finish();
+                            } else {
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        "No such user exist, please signup",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+            //mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
     }
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        return true; //email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {

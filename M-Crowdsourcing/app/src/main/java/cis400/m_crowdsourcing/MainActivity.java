@@ -57,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onLoginClick (View v) {
-    //    Intent i = new Intent(this, LoginActivity.class);
-    //    startActivity(i);
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
     }
 }
