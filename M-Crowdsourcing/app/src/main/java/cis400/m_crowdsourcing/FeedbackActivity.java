@@ -1,27 +1,17 @@
 package cis400.m_crowdsourcing;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
-import com.parse.ParseUser;
-
-/**
- * Created by kate on 10/12/15.
- */
-public class ProfileActivity extends ActionBarActivity {
+public class FeedbackActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profileview);
-
+        setContentView(R.layout.activity_feedback);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,11 +33,6 @@ public class ProfileActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void onEditClick (View v) {
-        Intent i = new Intent(this, EditAccountActivity.class);
-        startActivity(i);
     }
 
 }

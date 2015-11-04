@@ -6,22 +6,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
-import com.parse.ParseUser;
-
-/**
- * Created by kate on 10/12/15.
- */
-public class ProfileActivity extends ActionBarActivity {
+public class LandingPageActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profileview);
-
+        setContentView(R.layout.activity_landing_page);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,9 +37,18 @@ public class ProfileActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onEditClick (View v) {
-        Intent i = new Intent(this, EditAccountActivity.class);
+    public void onSearchClick(View v) {
+        Intent i = new Intent(this, SearchActivity.class);
         startActivity(i);
     }
 
+    public void onProfileClick (View v) {
+        Intent i = new Intent(this, ProfileActivity.class);
+        startActivity(i);
+    }
+
+    public void onFeedbackClick (View v) {
+        Intent i = new Intent(this, FeedbackActivity.class);
+        startActivity(i);
+    }
 }

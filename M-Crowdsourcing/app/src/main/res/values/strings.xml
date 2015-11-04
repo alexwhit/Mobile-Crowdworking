@@ -34,5 +34,8 @@
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="title_activity_edit_account">EditAccountActivity</string>
+    <string name="title_activity_landing_page">LandingPageActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
 
 </resources>

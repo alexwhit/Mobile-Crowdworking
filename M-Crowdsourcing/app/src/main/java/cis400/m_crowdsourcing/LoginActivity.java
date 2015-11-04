@@ -58,7 +58,7 @@ public class LoginActivity extends ActionBarActivity {
                             // If user exist and authenticated, send user to Welcome.class
                             Intent intent = new Intent(
                                     LoginActivity.this,
-                                    HITActivity.class);
+                                    LandingPageActivity.class);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),
                                     "Successfully Logged in",
