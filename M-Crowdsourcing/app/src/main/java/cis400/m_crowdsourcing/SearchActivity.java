@@ -1,38 +1,57 @@
 package cis400.m_crowdsourcing;
 
+import android.app.ListActivity;
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class SearchActivity extends ActionBarActivity {
+public class SearchActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+
+        String[] hits = {"Itemize receipt ", "Summarize", "Dogs in picture?", "Article about?"};
+        System.out.println(hits);
+        setListAdapter(new HITListArrayAdapter(this, hits));
+        System.out.println("set list adapter");
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+
+        //get selected items
+        String selectedValue = (String) getListAdapter().getItem(position);
+        Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private class HITListArrayAdapter extends ArrayAdapter<String> {
+        private final Context context;
+        private final String[] values;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        public HITListArrayAdapter(Context context, String[] values) {
+            super(context, R.layout.list_hitlistcell, values);
+            this.context = context;
+            this.values = values;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = (LayoutInflater) context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+            View rowView = inflater.inflate(R.layout.list_hitlistcell, parent, false);
+            TextView name = (TextView) rowView.findViewById(R.id.hitName);
+            name.setText(values[position]);
+
+            return rowView;
+        }
+    }
 }
