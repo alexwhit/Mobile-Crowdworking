@@ -18,9 +18,7 @@ public class SearchActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         String[] hits = {"Itemize receipt ", "Summarize", "Dogs in picture?", "Article about?"};
-        System.out.println(hits);
         setListAdapter(new HITListArrayAdapter(this, hits));
-        System.out.println("set list adapter");
     }
 
     @Override
