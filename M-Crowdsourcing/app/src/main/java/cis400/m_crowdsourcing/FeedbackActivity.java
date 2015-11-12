@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.content.Intent;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class FeedbackActivity extends ActionBarActivity {
 
@@ -33,6 +37,20 @@ public class FeedbackActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSubmitFeedbackClick(View v) {
+
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"mobilecrowdworking@gmail.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT, "Feedback from Mobile Crowdworking App - Android");
+        i.putExtra(Intent.EXTRA_TEXT   , ((EditText)findViewById(R.id.enter_feedback)).getText().toString());
+        try {
+            startActivity(Intent.createChooser(i, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
