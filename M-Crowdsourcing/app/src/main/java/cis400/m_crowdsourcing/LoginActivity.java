@@ -3,15 +3,21 @@ package cis400.m_crowdsourcing;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 
-import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.LogInCallback;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -61,7 +67,7 @@ public class LoginActivity extends ActionBarActivity {
                         } else {
                             Toast.makeText(
                                     getApplicationContext(),
-                                    "No such user exists, please signup",
+                                    "No such user exist, please signup",
                                     Toast.LENGTH_LONG).show();
                         }
                     }
