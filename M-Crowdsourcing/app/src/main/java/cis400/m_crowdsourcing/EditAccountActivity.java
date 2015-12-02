@@ -47,7 +47,7 @@ public class EditAccountActivity extends ActionBarActivity {
         user.setPassword(password);
         user.saveInBackground();
 
-        Intent i = new Intent(this, LoginActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 

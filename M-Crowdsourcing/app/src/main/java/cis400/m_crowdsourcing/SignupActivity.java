@@ -52,7 +52,7 @@ public class SignupActivity extends ActionBarActivity {
             ParseObject account = new ParseObject("SignupAccount");
             account.put("user", user);
             account.saveInBackground();
-            Intent i = new Intent(this, LoginActivity.class);
+            Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         } catch (ParseException ex) {
             if (ex.getCode() == ParseException.CONNECTION_FAILED) {
@@ -69,7 +69,7 @@ public class SignupActivity extends ActionBarActivity {
 
 
     public void onBack (View v) {
-        Intent i = new Intent(this, LoginActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 

@@ -28,9 +28,6 @@
             android:name=".HITActivity"
             android:label="@string/title_activity_hit" />
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity
             android:name=".SignupActivity"
             android:label="@string/title_activity_signup" />
         <activity
@@ -44,7 +41,7 @@
             android:label="@string/title_activity_search" />
         <activity
             android:name=".FeedbackActivity"
-            android:label="@string/title_activity_feedback"></activity>
+            android:label="@string/title_activity_feedback"/>
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" />
