@@ -17,6 +17,7 @@ import android.widget.EditText;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.Parse;
 import com.parse.LogInCallback;
 
 
@@ -27,6 +28,19 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        try {
+            // Enable Local Datastore.
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this, "DKJjvfvhnCGRK0cAdOpJN9MwR7zhIpuYya5xvbuF", "a9iCrTmreZRMhfHbmn35osllgoRe3sDkXJW9sW6l");
+
+
+            ParseObject testObject = new ParseObject("TestObject");
+            testObject.put("foo", "bar");
+            testObject.saveInBackground();
+        }
+        catch (Exception e) {
+            System.out.println("Parse already initialized");
+        }
     }
 
     @Override
