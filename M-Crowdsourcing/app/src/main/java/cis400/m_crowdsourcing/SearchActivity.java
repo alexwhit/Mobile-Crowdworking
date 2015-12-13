@@ -10,6 +10,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+
+import com.parse.Parse;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class SearchActivity extends ListActivity {
 
@@ -17,16 +27,40 @@ public class SearchActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String[] hits = {"Itemize receipt ", "Summarize", "Dogs in picture?", "Article about?"};
-        setListAdapter(new HITListArrayAdapter(this, hits));
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("HIT");
+        final ArrayList<String> hits = new ArrayList<String>();
+        final ArrayList<ParseObject> parsed = new ArrayList<ParseObject>();
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    System.out.println("Parse Object Retrieved Successfully");
+
+                    for (ParseObject object : objects) {
+                        String title = object.getString("title");
+                        System.out.println(title);
+                        hits.add(title);
+                        parsed.add(object);
+                    }
+                } else {
+                    System.out.println("Parse Object Retrieval Failure");
+                }
+            }
+        });
+        ArrayAdapter<ParseObject> adapter = new ArrayAdapter<ParseObject>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, parsed);
+        setListAdapter(adapter);
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
         //get selected items
-        String selectedValue = (String) getListAdapter().getItem(position);
-        Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
+        ParseObject selectedValue = (ParseObject)getListAdapter().getItem(position);
+
+        Intent i = new Intent(this, HITPreviewActivity.class);
+        i.putExtra("parse_id", selectedValue.getObjectId());
+
 
     }
 

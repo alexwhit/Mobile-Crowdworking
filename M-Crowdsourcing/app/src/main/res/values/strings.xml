@@ -38,5 +38,6 @@
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_feedback">FeedbackActivity</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_hitpreview">HITPreviewActivity</string>
 
 </resources>
