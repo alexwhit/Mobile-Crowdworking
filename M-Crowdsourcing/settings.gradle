@@ -1,1 +1,1 @@
-include ':app', ':java-aws-mturk', ':aws-mturk-dataschema', ':aws-mturk-wsdl'
+include ':app'

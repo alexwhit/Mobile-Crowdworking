@@ -4,9 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/M-Crowdsourcing.iml" filepath="$PROJECT_DIR$/M-Crowdsourcing.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aws-mturk-dataschema/aws-mturk-dataschema.iml" filepath="$PROJECT_DIR$/aws-mturk-dataschema/aws-mturk-dataschema.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aws-mturk-wsdl/aws-mturk-wsdl.iml" filepath="$PROJECT_DIR$/aws-mturk-wsdl/aws-mturk-wsdl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-aws-mturk/java-aws-mturk.iml" filepath="$PROJECT_DIR$/java-aws-mturk/java-aws-mturk.iml" />
     </modules>
   </component>
 </project>

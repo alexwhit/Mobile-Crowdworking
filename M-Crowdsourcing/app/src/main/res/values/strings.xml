@@ -37,5 +37,6 @@
     <string name="title_activity_landing_page">LandingPageActivity</string>
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_feedback">FeedbackActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 
 </resources>
