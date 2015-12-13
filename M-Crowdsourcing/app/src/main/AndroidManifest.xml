@@ -41,10 +41,13 @@
             android:label="@string/title_activity_search" />
         <activity
             android:name=".FeedbackActivity"
-            android:label="@string/title_activity_feedback"/>
+            android:label="@string/title_activity_feedback" />
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" />
+        <activity
+            android:name=".HITPreviewActivity"
+            android:label="@string/title_activity_hitpreview"></activity>
     </application>
 
 </manifest>
