@@ -11,12 +11,31 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import java.util.List;
+
+
 public class SearchActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("HIT");
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+                                   public void done(List<ParseObject> objects, ParseException e) {
+                                       if (e == null) {
+                                           System.out.println("Parse Object Retrieved Successfully");
+
+                                       } else {
+                                           System.out.println("Parse Object Retrieval Failure");
+                                       }
+                                   }
+                               });
         String[] hits = {"Itemize receipt ", "Summarize", "Dogs in picture?", "Article about?"};
         setListAdapter(new HITListArrayAdapter(this, hits));
     }
