@@ -2,6 +2,7 @@ package cis400.m_crowdsourcing;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.content.Intent;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import java.util.List;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class SearchActivity extends ListActivity {
