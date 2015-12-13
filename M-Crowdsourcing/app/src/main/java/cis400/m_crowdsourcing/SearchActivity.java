@@ -23,13 +23,16 @@ import java.util.ArrayList;
 
 public class SearchActivity extends ListActivity {
 
+    ArrayList<ParseObject> parsed = new ArrayList<ParseObject>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("HIT");
         final ArrayList<String> hits = new ArrayList<String>();
-        final ArrayList<ParseObject> parsed = new ArrayList<ParseObject>();
+        parsed = new ArrayList<ParseObject>();
 
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> objects, ParseException e) {
@@ -47,8 +50,8 @@ public class SearchActivity extends ListActivity {
                 }
             }
         });
-        ArrayAdapter<ParseObject> adapter = new ArrayAdapter<ParseObject>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, parsed);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, hits);
         setListAdapter(adapter);
     }
 
@@ -56,7 +59,7 @@ public class SearchActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
         //get selected items
-        ParseObject selectedValue = (ParseObject)getListAdapter().getItem(position);
+        ParseObject selectedValue = parsed.get(position);
 
         Intent i = new Intent(this, HITPreviewActivity.class);
         i.putExtra("parse_id", selectedValue.getObjectId());
