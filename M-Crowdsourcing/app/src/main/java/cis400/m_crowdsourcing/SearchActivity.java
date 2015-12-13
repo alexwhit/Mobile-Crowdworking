@@ -16,6 +16,7 @@ import com.parse.ParseQuery;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import java.util.List;
+import java.util.ArrayList;
 
 
 public class SearchActivity extends ListActivity {
@@ -25,19 +26,27 @@ public class SearchActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("HIT");
+        final ArrayList<String> hits = new ArrayList<String>();
 
         query.findInBackground(new FindCallback<ParseObject>() {
-                                   public void done(List<ParseObject> objects, ParseException e) {
-                                       if (e == null) {
-                                           System.out.println("Parse Object Retrieved Successfully");
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    System.out.println("Parse Object Retrieved Successfully");
 
-                                       } else {
-                                           System.out.println("Parse Object Retrieval Failure");
-                                       }
-                                   }
-                               });
-        String[] hits = {"Itemize receipt ", "Summarize", "Dogs in picture?", "Article about?"};
-        setListAdapter(new HITListArrayAdapter(this, hits));
+                    for (ParseObject object : objects) {
+                        String title = object.getString("title");
+                        System.out.println(title);
+                        hits.add(title);
+                    }
+                } else {
+                    System.out.println("Parse Object Retrieval Failure");
+                }
+            }
+        });
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, hits);
+        setListAdapter(adapter);
+        //setListAdapter(new HITListArrayListAdapter(this, hits));
     }
 
     @Override
