@@ -123,12 +123,22 @@ public class SearchActivity extends ListActivity {
             String preview_url = urls[0].toString();
             try {
                 Document doc = Jsoup.connect(preview_url).get();
+                String signature = "";
+
+                Elements signatures = doc.select("input[name = signature]");
+                System.out.println(signatures.size());
+                System.out.println("signatures size just printed");
+                for (Element element : signatures) {
+                    System.out.println(element);
+                    System.out.println("signature: " + element.attr("value"));
+                    signature = element.attr("value");
+                }
 
                 Elements links = doc.select("a[id = hitExternalNextAcceptLink]");
                 for (Element element : links) {
-                    System.out.println(element);
+                    //System.out.println(element);
+                    System.out.println(element.attr("href") + "&signature=" + signature);
                 }
-
 
             } catch (IOException e) {
                 e.printStackTrace();
