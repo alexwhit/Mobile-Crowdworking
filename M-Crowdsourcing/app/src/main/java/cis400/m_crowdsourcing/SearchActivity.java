@@ -3,6 +3,7 @@ package cis400.m_crowdsourcing;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,15 +24,15 @@ import java.util.List;
 public class SearchActivity extends ListActivity {
 
     ArrayList<ParseObject> parsed = new ArrayList<ParseObject>();
-
+    ArrayList<String> hits = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("HIT");
-        final ArrayList<String> hits = new ArrayList<String>();
         parsed = new ArrayList<ParseObject>();
+        hits = new ArrayList<String>();
 
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> objects, ParseException e) {
@@ -44,14 +45,16 @@ public class SearchActivity extends ListActivity {
                         hits.add(title);
                         parsed.add(object);
                     }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, android.R.id.text1, hits);
+                    setListAdapter(adapter);
                 } else {
                     System.out.println("Parse Object Retrieval Failure");
                 }
             }
         });
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, hits);
-        setListAdapter(adapter);
+
+
+
     }
 
     @Override
@@ -60,9 +63,15 @@ public class SearchActivity extends ListActivity {
         //get selected items
         ParseObject selectedValue = parsed.get(position);
 
-        Intent i = new Intent(this, HITPreviewActivity.class);
-        i.putExtra("parse_id", selectedValue.getObjectId());
 
+
+        //Intent i = new Intent(this, HITPreviewActivity.class);
+        //i.putExtra("parse_id", selectedValue.getObjectId());
+        String groupId = selectedValue.getString("groupID");
+        String url = "http://www.mturk.com/mturk/preview?groupId=" + groupId;
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
 
     }
 
