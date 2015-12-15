@@ -20,6 +20,9 @@ import com.parse.ParseQuery;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -120,6 +123,13 @@ public class SearchActivity extends ListActivity {
             String preview_url = urls[0].toString();
             try {
                 Document doc = Jsoup.connect(preview_url).get();
+
+                Elements links = doc.select("a[id = hitExternalNextAcceptLink]");
+                for (Element element : links) {
+                    System.out.println(element);
+                }
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
