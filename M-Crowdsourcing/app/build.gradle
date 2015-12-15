@@ -26,4 +26,5 @@ dependencies {
     compile 'com.parse.bolts:bolts-android:1.+'
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
     compile files('src/main/java/Parse-1.10.3.jar')
+    compile 'org.jsoup:jsoup:1.7.3'
 }

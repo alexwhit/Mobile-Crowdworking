@@ -19,6 +19,8 @@ import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 
 public class SearchActivity extends ListActivity {
@@ -69,6 +71,14 @@ public class SearchActivity extends ListActivity {
         //i.putExtra("parse_id", selectedValue.getObjectId());
         String groupId = selectedValue.getString("groupID");
         String url = "http://www.mturk.com/mturk/preview?groupId=" + groupId;
+       try {
+           Document doc = Jsoup.connect(url).get();
+           System.out.print(doc.title());
+       }
+       catch (Exception e) {
+            System.out.println("exception in jsoup document connection");
+        }
+
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
