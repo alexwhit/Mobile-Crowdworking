@@ -11,16 +11,20 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.os.AsyncTask;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.net.URL;
 
 
 public class SearchActivity extends ListActivity {
@@ -72,16 +76,19 @@ public class SearchActivity extends ListActivity {
         String groupId = selectedValue.getString("groupID");
         String url = "http://www.mturk.com/mturk/preview?groupId=" + groupId;
        try {
-           Document doc = Jsoup.connect(url).get();
-           System.out.print(doc.title());
+           URL preview_url = new URL(url);
+           new ParseSoupTask().execute(preview_url);
+           System.out.println("Parsing successful!");
+           //System.out.print(doc.title());
        }
        catch (Exception e) {
-            System.out.println("exception in jsoup document connection");
+           System.out.println("exception in jsoup document connection");
+           System.out.println(e.toString());
         }
 
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+        //startActivity(intent);
 
     }
 
@@ -107,4 +114,21 @@ public class SearchActivity extends ListActivity {
             return rowView;
         }
     }
+
+    private class ParseSoupTask extends AsyncTask<URL, String, Long> {
+        protected Long doInBackground(URL... urls) {
+            String preview_url = urls[0].toString();
+            try {
+                Document doc = Jsoup.connect(preview_url).get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return new Long(0);
+        }
+
+    }
+
 }
+
+
