@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':selenium-java-2.49.0', ':selendroid-standalone-0.17.0-with-dependencies'
