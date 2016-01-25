@@ -1,5 +1,4 @@
 package cis400.m_crowdsourcing;
-//package org.openqa.selenium.*;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -24,18 +23,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-//import selendroid;
-/*
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-*/
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class SearchActivity extends ListActivity {
@@ -74,31 +69,29 @@ public class SearchActivity extends ListActivity {
 
     }
 
-   /* public class Example  {
-        public static void main(String[] args) {
-            // Create a new instance of the html unit driver
-            // Notice that the remainder of the code relies on the interface,
-            // not the implementation.
-            WebDriver driver = new HtmlUnitDriver();
+    public void drive(String[] args) {
+        // Create a new instance of the html unit driver
+        // Notice that the remainder of the code relies on the interface,
+        // not the implementation.
+        WebDriver driver = new HtmlUnitDriver();
 
-            // And now use this to visit Google
-            driver.get("http://www.google.com");
+        // And now use this to visit Google
+        driver.get("http://www.google.com");
 
-            // Find the text input element by its name
-            WebElement element = driver.findElement(By.name("q"));
+        // Find the text input element by its name
+        WebElement element = driver.findElement(By.name("q"));
 
-            // Enter something to search for
-            element.sendKeys("Cheese!");
+        // Enter something to search for
+        element.sendKeys("Cheese!");
 
-            // Now submit the form. WebDriver will find the form for us from the element
-            element.submit();
+        // Now submit the form. WebDriver will find the form for us from the element
+        element.submit();
 
-            // Check the title of the page
-            System.out.println("Page title is: " + driver.getTitle());
+        // Check the title of the page
+        System.out.println("Page title is: " + driver.getTitle());
 
-            driver.quit();
-        }
-    } */
+        driver.quit();
+    }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
