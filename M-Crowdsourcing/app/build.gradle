@@ -27,5 +27,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
     compile files('src/main/java/Parse-1.10.3.jar')
     compile 'org.jsoup:jsoup:1.7.3'
-    compile project(':selenium-java-2.49.0')
+    compile project(':selenium-java-2.50.0')
 }
