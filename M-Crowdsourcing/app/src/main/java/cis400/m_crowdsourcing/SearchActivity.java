@@ -98,8 +98,7 @@ public class SearchActivity extends ListActivity {
 
         //get selected items
         ParseObject selectedValue = parsed.get(position);
-
-
+        WebDriver driver = new HtmlUnitDriver();
 
         //Intent i = new Intent(this, HITPreviewActivity.class);
         //i.putExtra("parse_id", selectedValue.getObjectId());
@@ -107,6 +106,9 @@ public class SearchActivity extends ListActivity {
         String url = "http://www.mturk.com/mturk/preview?groupId=" + groupId;
        try {
            URL preview_url = new URL(url);
+           //driver.get(preview_url.toString());
+           //WebElement element = driver.findElement(By.name("input"));
+           //System.out.println("Selenium elt: " + element);
            new ParseSoupTask().execute(preview_url);
            System.out.println("Parsing successful!");
            //System.out.print(doc.title());
