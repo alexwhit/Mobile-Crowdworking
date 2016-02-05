@@ -9,7 +9,7 @@ sign_in.click()
 email = driver.find_element_by_id('ap_email')
 email.send_keys("whitakeralex94@yahoo.com")
 password = driver.find_element_by_id('ap_password')
-password.send_keys('wikiwala423')
+password.send_keys()
 
 submit = driver.find_element_by_id('signInSubmit-input')
 submit.click()
