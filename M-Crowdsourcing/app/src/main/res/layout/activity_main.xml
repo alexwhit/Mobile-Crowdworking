@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content" android:hint="@string/prompt_username"
                 android:inputType="textEmailAddress" android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@android:color/white"/>
+                android:textColor="@color/entry_text"/>
 
             <EditText android:id="@+id/password" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:hint="@string/prompt_password"
@@ -28,31 +28,39 @@
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified" android:inputType="textPassword"
                 android:maxLines="1" android:singleLine="true"
-                android:textColor="@android:color/white"/>
+                android:textColor="@color/entry_text"/>
+
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/LogInButton"
+
+                android:textColor="#5E45FF"
+                android:textSize="18sp"
+                android:text="@string/action_sign_in"
+                android:onClick="onLoginClick"
+
+                android:layout_toLeftOf="@+id/SignUpButton"
+                android:layout_width="160dp"
+                android:layout_height="58dp"
+                android:background="@drawable/buttonshape"/>
 
             <Button
-                style="?android:textAppearanceSmall"
-                android:id="@+id/LogInButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/action_sign_in"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:onClick="onLoginClick"
-                android:background="#4d4d4d"
-                android:textColor="@android:color/white"/>
+                android:id="@+id/SignUpButton"
 
-            <Button android:id="@+id/SignUpButton"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:textColor="#5E45FF"
+                android:textSize="18sp"
                 android:text="@string/action_sign_up"
-                android:textStyle="bold"
                 android:onClick="onSignUpClick"
-                android:background="#4d4d4d"
-                android:textColor="@android:color/white"/>
+
+                android:layout_toRightOf="@+id/LogInButton"
+                android:layout_width="160dp"
+                android:layout_height="58dp"
+                android:background="@drawable/buttonshape"/>
+        </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

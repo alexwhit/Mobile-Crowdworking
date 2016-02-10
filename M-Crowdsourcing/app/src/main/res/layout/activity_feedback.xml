@@ -9,6 +9,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cis400.m_crowdsourcing.FeedbackActivity">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send feedback to &quot;mobilecrowdworking@gmail.com&quot;"
+        android:textColor="@color/text"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,28 +27,26 @@
         android:ems="10"
         android:id="@+id/enter_feedback"
         android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="72dp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@color/entry_text"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
         android:id="@+id/submit_feedback"
-        android:onClick="onSubmitFeedbackClick"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:background="#4d4d4d"
-        android:textColor="@android:color/white"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send feedback to &quot;mobilecrowdworking@gmail.com&quot;"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="center" />
+        android:textColor="#5E45FF"
+        android:textSize="18sp"
+        android:text="Submit"
+        android:onClick="onSubmitFeedbackClick"
+
+        android:layout_width="160dp"
+        android:layout_height="58dp"
+        android:background="@drawable/buttonshape"
+
+        android:layout_below="@+id/enter_feedback"
+        android:layout_centerHorizontal="true"/>
+
+
 
 </RelativeLayout>

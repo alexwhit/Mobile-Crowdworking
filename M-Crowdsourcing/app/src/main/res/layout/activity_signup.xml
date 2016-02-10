@@ -10,34 +10,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/username"
-        android:textColor="@android:color/white"/>
+        android:textColor="@color/entry_text"/>
     <EditText android:id="@+id/signup_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:textColor="@android:color/white"/>
+        android:textColor="@color/entry_text"/>
     <EditText android:id="@+id/signup_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/country_of_residence"
-        android:textColor="@android:color/white"/>
-    <Button android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:textColor="@color/entry_text"/>
+
+
+    <Button
         android:id="@+id/signup_button_signup"
-        android:layout_centerHorizontal="true"
+
+        android:textColor="#5E45FF"
+        android:textSize="18sp"
+        android:text="Sign Up"
         android:onClick="onSignupClick"
-        android:background="#4d4d4d"
-        android:textColor="@android:color/white"/>
-    <Button android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back to log in"
+
+        android:layout_width="160dp"
+        android:layout_height="58dp"
+        android:background="@drawable/buttonshape"/>
+
+    <Button
         android:id="@+id/back_to_login_button"
-        android:layout_centerHorizontal="true"
+
+        android:textColor="#5E45FF"
+        android:textSize="18sp"
+        android:text="Back to Log In"
         android:onClick="onBack"
-        android:background="#4d4d4d"
-        android:textColor="@android:color/white"/>
+
+        android:layout_width="160dp"
+        android:layout_height="58dp"
+        android:background="@drawable/buttonshape"/>
+
+
     <TextView android:id="@+id/signup_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -9,38 +9,55 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cis400.m_crowdsourcing.LandingPageActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        android:onClick="onProfileClick"
-        android:id="@+id/profile_button"
-        android:layout_below="@+id/search_button"
-        android:layout_alignStart="@+id/search_button"
-        android:layout_marginTop="137dp"
-        android:background="#4d4d4d"
-        android:textColor="@android:color/white"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/profile_button"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:onClick="onSearchClick"
-        android:id="@+id/search_button"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:background="#4d4d4d"
-        android:textColor="@android:color/white"/>
+            android:textColor="#5E45FF"
+            android:textSize="18sp"
+            android:text="Profile"
+            android:onClick="onProfileClick"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feedback"
-        android:onClick="onFeedbackClick"
-        android:id="@+id/feedback_button"
-        android:layout_below="@+id/profile_button"
-        android:layout_centerHorizontal="true"
-        android:background="#4d4d4d"
-        android:textColor="@android:color/white"/>
+            android:layout_width="160dp"
+            android:layout_height="58dp"
+            android:background="@drawable/buttonshape"
+
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+
+        <Button
+            android:id="@+id/search_button"
+
+            android:textColor="#5E45FF"
+            android:textSize="18sp"
+            android:text="Search"
+            android:onClick="onSearchClick"
+
+            android:layout_width="160dp"
+            android:layout_height="58dp"
+            android:background="@drawable/buttonshape"
+
+            android:layout_below="@+id/profile_button"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/feedback_button"
+
+            android:textColor="#5E45FF"
+            android:textSize="18sp"
+            android:text="Feedback"
+            android:onClick="onFeedbackClick"
+
+            android:layout_width="160dp"
+            android:layout_height="58dp"
+            android:background="@drawable/buttonshape"
+
+            android:layout_below="@+id/search_button"
+            android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
 </RelativeLayout>
