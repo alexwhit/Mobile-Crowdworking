@@ -6,24 +6,26 @@
     <TextView android:text="@string/ProfileView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="@color/text"/>
 
     <TextView android:text="@string/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        />
+        android:textColor="@color/text"/>
 
     <TextView android:text="@string/country_of_residence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="@color/text"/>
 
     <TextView android:text="@string/mturk_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        />
+        android:textColor="@color/text"/>
 
     <Button
         android:id="@+id/change_info"
@@ -37,8 +39,11 @@
         android:layout_height="58dp"
         android:background="@drawable/buttonshape"
 
-        android:layout_centerHorizontal="true"/>
-
-
+        android:gravity="center"/>
 
 </LinearLayout>
+
+
+
+
+

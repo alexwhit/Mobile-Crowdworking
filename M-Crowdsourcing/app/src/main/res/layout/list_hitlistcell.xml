@@ -9,7 +9,8 @@ android:padding="5dp" >
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@+id/hitName"
-    android:textSize="30px">
+    android:textSize="30px"
+    android:textColor="@color/text">
 </TextView>
 
 

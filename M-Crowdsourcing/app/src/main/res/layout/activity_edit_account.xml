@@ -39,7 +39,8 @@
 
         android:layout_width="160dp"
         android:layout_height="58dp"
-        android:background="@drawable/buttonshape"/>
+        android:background="@drawable/buttonshape"
+        android:layout_centerHorizontal="true"/>
 
 
     <TextView android:id="@+id/signup_error"
