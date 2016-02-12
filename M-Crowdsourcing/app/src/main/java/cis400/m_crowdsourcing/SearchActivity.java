@@ -57,7 +57,7 @@ public class SearchActivity extends ListActivity {
                         hits.add(title);
                         parsed.add(object);
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, android.R.id.text1, hits);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), R.layout.search_list_item, android.R.id.text1, hits);
                     setListAdapter(adapter);
                 } else {
                     System.out.println("Parse Object Retrieval Failure");
