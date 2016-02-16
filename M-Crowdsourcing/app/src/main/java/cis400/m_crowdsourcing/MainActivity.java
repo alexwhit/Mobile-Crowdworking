@@ -8,17 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
 
+import com.parse.LogInCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
-import com.parse.Parse;
-import com.parse.LogInCallback;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -29,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         try {
-            // Enable Local Datastore.
+            // Enable Local Datastore
             Parse.enableLocalDatastore(this);
             Parse.initialize(this, "DKJjvfvhnCGRK0cAdOpJN9MwR7zhIpuYya5xvbuF", "a9iCrTmreZRMhfHbmn35osllgoRe3sDkXJW9sW6l");
 
@@ -75,13 +71,13 @@ public class MainActivity extends ActionBarActivity {
                                     LandingPageActivity.class);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),
-                                    "Successfully Logged in",
+                                    "Successfully logged in!",
                                     Toast.LENGTH_LONG).show();
                             finish();
                         } else {
                             Toast.makeText(
                                     getApplicationContext(),
-                                    "No such user exist, please signup",
+                                    "No such user exists, please sign up.",
                                     Toast.LENGTH_LONG).show();
                         }
                     }
@@ -89,7 +85,33 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onSignUpClick(View v) {
-        Intent i = new Intent(this, SignupActivity.class);
-        startActivity(i);
+        String username = ((EditText)findViewById(R.id.username)).getText().toString();
+        String password = ((EditText) findViewById(R.id.password)).getText().toString();
+        ParseUser user = new ParseUser();
+        user.setUsername(username);
+        user.setPassword(password);
+        try {
+            user.signUp();
+            ParseObject account = new ParseObject("SignupAccount");
+            account.put("user", user);
+            account.saveInBackground();
+            Intent i = new Intent(this, LandingPageActivity.class);
+            startActivity(i);
+        } catch (ParseException ex) {
+            if (ex.getCode() == ParseException.CONNECTION_FAILED) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Error: check connection.",
+                        Toast.LENGTH_LONG).show();
+            } else if (ex.getCode() == ParseException.USERNAME_TAKEN) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Error: username in use.",
+                        Toast.LENGTH_LONG).show();
+            } else {
+                Log.e("A", "B", ex);
+                finish();
+            }
+        }
     }
 }
