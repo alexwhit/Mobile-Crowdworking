@@ -58,8 +58,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onLoginClick(View v) {
-        String username = ((EditText) findViewById(R.id.username)).getText().toString();
-        String password = ((EditText) findViewById(R.id.password)).getText().toString();
+        final String username = ((EditText) findViewById(R.id.username)).getText().toString();
+        final String password = ((EditText) findViewById(R.id.password)).getText().toString();
 
         ParseUser.logInInBackground(username, password,
                 new LogInCallback() {
@@ -69,7 +69,8 @@ public class MainActivity extends ActionBarActivity {
                             Intent intent = new Intent(
                                     MainActivity.this,
                                     LandingPageActivity.class);
-
+                            User.setUsersUsername(username);
+                            // TODO get country and name from Parse and set them here
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),
                                     "Successfully logged in!",

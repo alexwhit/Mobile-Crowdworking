@@ -21,8 +21,15 @@ public class ProfileActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profileview);
 
-        TextView t = (TextView) findViewById(R.id.profile_name);
-        t.append(" ");
+        // Set the fields for the logged-in user
+        TextView n = (TextView) findViewById(R.id.profile_name);
+        n.append(" " + User.name);
+
+        TextView u = (TextView) findViewById(R.id.profile_username);
+        u.append(" " + User.username);
+
+        TextView c = (TextView) findViewById(R.id.profile_country);
+        c.append(" " + User.country);
 
     }
 

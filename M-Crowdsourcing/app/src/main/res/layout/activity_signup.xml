@@ -7,6 +7,11 @@
     android:gravity="center"
     tools:context=".SignupActivity"
     android:orientation="vertical">
+    <EditText android:id="@+id/signup_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"
+        android:textColor="@color/entry_text"/>
     <EditText android:id="@+id/signup_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
