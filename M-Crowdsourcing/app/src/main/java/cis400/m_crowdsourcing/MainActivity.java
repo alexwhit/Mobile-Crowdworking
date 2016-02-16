@@ -73,6 +73,7 @@ public class MainActivity extends ActionBarActivity {
                             Intent intent = new Intent(
                                     MainActivity.this,
                                     LandingPageActivity.class);
+
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),
                                     "Successfully Logged in",
