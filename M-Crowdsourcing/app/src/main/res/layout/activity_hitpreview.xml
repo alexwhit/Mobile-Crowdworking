@@ -9,4 +9,57 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cis400.m_crowdsourcing.HITPreviewActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Job Preview"
+        android:textColor="@color/text"
+        android:id="@+id/job_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accept Job"
+        android:id="@+id/accept_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Requester: "
+        android:textColor="@color/text"
+        android:id="@+id/requester"
+        android:layout_below="@+id/job_title"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Payment: "
+        android:textColor="@color/text"
+        android:id="@+id/payment"
+        android:layout_below="@+id/requester"
+        android:layout_centerHorizontal="true" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/payment"
+        android:layout_centerHorizontal="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/text"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Instructions here"
+            android:id="@+id/textView5" />
+    </ScrollView>
 </RelativeLayout>

@@ -3,8 +3,6 @@ package cis400.m_crowdsourcing;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,16 +16,6 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +25,8 @@ public class SearchActivity extends ListActivity {
 
     ArrayList<ParseObject> parsed = new ArrayList<ParseObject>();
     ArrayList<String> hits = new ArrayList<String>();
+    ArrayList<String> requesters = new ArrayList<>();
+    ArrayList<Double> rewards = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +35,8 @@ public class SearchActivity extends ListActivity {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("HIT");
         parsed = new ArrayList<ParseObject>();
         hits = new ArrayList<String>();
+        requesters = new ArrayList<String>();
+        rewards = new ArrayList<Double>();
 
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> objects, ParseException e) {
@@ -53,8 +45,12 @@ public class SearchActivity extends ListActivity {
 
                     for (ParseObject object : objects) {
                         String title = object.getString("title");
+                        String requester = object.getString("requester");
+                        Double reward = object.getDouble("reward");
                         System.out.println(title);
                         hits.add(title);
+                        requesters.add(requester);
+                        rewards.add(reward);
                         parsed.add(object);
                     }
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), R.layout.search_list_item, android.R.id.text1, hits);
@@ -69,39 +65,15 @@ public class SearchActivity extends ListActivity {
 
     }
 
-    public void drive(String[] args) {
-        // Create a new instance of the html unit driver
-        // Notice that the remainder of the code relies on the interface,
-        // not the implementation.
-        WebDriver driver = new HtmlUnitDriver();
-
-        // And now use this to visit Google
-        driver.get("http://www.google.com");
-
-        // Find the text input element by its name
-        WebElement element = driver.findElement(By.name("q"));
-
-        // Enter something to search for
-        element.sendKeys("Cheese!");
-
-        // Now submit the form. WebDriver will find the form for us from the element
-        element.submit();
-
-        // Check the title of the page
-        System.out.println("Page title is: " + driver.getTitle());
-
-        driver.quit();
-    }
-
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
         //get selected items
         ParseObject selectedValue = parsed.get(position);
-        WebDriver driver = new HtmlUnitDriver();
+        /*WebDriver driver = new HtmlUnitDriver();
 
-        //Intent i = new Intent(this, HITPreviewActivity.class);
-        //i.putExtra("parse_id", selectedValue.getObjectId());
+        Intent i = new Intent(this, HITPreviewActivity.class);
+        i.putExtra("parse_id", selectedValue.getObjectId());
         String groupId = selectedValue.getString("groupID");
         String url = "http://www.mturk.com/mturk/preview?groupId=" + groupId;
        try {
@@ -116,12 +88,14 @@ public class SearchActivity extends ListActivity {
        catch (Exception e) {
            System.out.println("exception in jsoup document connection");
            System.out.println(e.toString());
-        }
-
-        Uri uri = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        //startActivity(intent);
-
+        } */
+        Intent intent = new Intent(
+                SearchActivity.this,
+                HITPreviewActivity.class);
+        intent.putExtra("title", hits.get(position));
+        intent.putExtra("requester", requesters.get(position));
+        intent.putExtra("reward", rewards.get(position));
+        startActivity(intent);
     }
 
     private class HITListArrayAdapter extends ArrayAdapter<String> {
@@ -147,7 +121,7 @@ public class SearchActivity extends ListActivity {
         }
     }
 
-    private class ParseSoupTask extends AsyncTask<URL, String, Long> {
+    /*private class ParseSoupTask extends AsyncTask<URL, String, Long> {
         protected Long doInBackground(URL... urls) {
             String preview_url = urls[0].toString();
             try {
@@ -190,7 +164,7 @@ public class SearchActivity extends ListActivity {
             return new Long(0);
         }
 
-    }
+    }*/
 
 }
 
