@@ -69,8 +69,6 @@ public class MainActivity extends ActionBarActivity {
                             Intent intent = new Intent(
                                     MainActivity.this,
                                     LandingPageActivity.class);
-                            User.setUsersUsername(username);
-                            // TODO get country and name from Parse and set them here
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),
                                     "Successfully logged in!",
@@ -87,32 +85,41 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onSignUpClick(View v) {
-        String username = ((EditText)findViewById(R.id.username)).getText().toString();
+        String username = ((EditText) findViewById(R.id.username)).getText().toString();
         String password = ((EditText) findViewById(R.id.password)).getText().toString();
-        ParseUser user = new ParseUser();
-        user.setUsername(username);
-        user.setPassword(password);
-        try {
-            user.signUp();
-            ParseObject account = new ParseObject("SignupAccount");
-            account.put("user", user);
-            account.saveInBackground();
-            Intent i = new Intent(this, LandingPageActivity.class);
-            startActivity(i);
-        } catch (ParseException ex) {
-            if (ex.getCode() == ParseException.CONNECTION_FAILED) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        "Error: check connection.",
-                        Toast.LENGTH_LONG).show();
-            } else if (ex.getCode() == ParseException.USERNAME_TAKEN) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        "Error: username in use.",
-                        Toast.LENGTH_LONG).show();
-            } else {
-                Log.e("A", "B", ex);
-                finish();
+        if (username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Must have a username and password.",
+                    Toast.LENGTH_LONG).show();
+        }
+        else {
+            ParseUser user = new ParseUser();
+            user.setUsername(username);
+            user.setPassword(password);
+            try {
+                user.signUp();
+                ParseObject account = new ParseObject("SignupAccount");
+                account.put("user", user);
+                account.saveInBackground();
+                Intent i = new Intent(this, EditAccountActivity.class);
+                i.putExtra("password", password);
+                startActivity(i);
+            } catch (ParseException ex) {
+                if (ex.getCode() == ParseException.CONNECTION_FAILED) {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Error: check connection.",
+                            Toast.LENGTH_LONG).show();
+                } else if (ex.getCode() == ParseException.USERNAME_TAKEN) {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Error: username in use.",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    Log.e("A", "B", ex);
+                    finish();
+                }
             }
         }
     }

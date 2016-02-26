@@ -42,11 +42,14 @@ public class SignupActivity extends ActionBarActivity {
 
 
     public void onSignupClick (View v) {
+        String name = ((EditText)findViewById(R.id.signup_name)).getText().toString();
+        String country = ((EditText)findViewById(R.id.signup_country)).getText().toString();
         String username = ((EditText)findViewById(R.id.signup_username)).getText().toString();
-
         String password = ((EditText) findViewById(R.id.signup_password)).getText().toString();
 
         ParseUser user = new ParseUser();
+        user.put("name", name);
+        user.put("country", name);
         user.setUsername(username);
         user.setPassword(password);
         try {

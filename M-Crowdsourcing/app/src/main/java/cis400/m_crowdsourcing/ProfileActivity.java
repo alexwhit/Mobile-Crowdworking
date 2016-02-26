@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.Parse;
 import com.parse.ParseUser;
 
 /**
@@ -23,13 +24,13 @@ public class ProfileActivity extends ActionBarActivity {
 
         // Set the fields for the logged-in user
         TextView n = (TextView) findViewById(R.id.profile_name);
-        n.append(" " + User.name);
+        n.append(" " + ParseUser.getCurrentUser().getString("name"));
 
         TextView u = (TextView) findViewById(R.id.profile_username);
-        u.append(" " + User.username);
+        u.append(" " + ParseUser.getCurrentUser().getUsername());
 
         TextView c = (TextView) findViewById(R.id.profile_country);
-        c.append(" " + User.country);
+        c.append(" " + ParseUser.getCurrentUser().getString("country"));
 
     }
 

@@ -20,6 +20,11 @@ public class EditAccountActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_account);
+        String pword = getIntent().getStringExtra("password");
+        if (!pword.isEmpty()) {
+            EditText password = ((EditText)findViewById(R.id.signup_password));
+            password.setText(pword);
+        }
     }
 
     @Override
@@ -43,11 +48,15 @@ public class EditAccountActivity extends ActionBarActivity {
 
     public void onChangeInformationClick (View v) {
         String password = ((EditText)findViewById(R.id.signup_password)).getText().toString();
+        String name = ((EditText)findViewById(R.id.signup_name)).getText().toString();
+        String country = ((EditText)findViewById(R.id.signup_country)).getText().toString();
         ParseUser user = ParseUser.getCurrentUser();
-        user.setPassword(password);
+        if(!password.isEmpty()) user.setPassword(password);
+        if(!name.isEmpty()) user.put("name", name);
+        if(!country.isEmpty()) user.put("country", country);
         user.saveInBackground();
 
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, LandingPageActivity.class);
         startActivity(i);
     }
 
