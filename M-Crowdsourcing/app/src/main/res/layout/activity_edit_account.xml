@@ -33,7 +33,7 @@
 
         android:textColor="#5E45FF"
         android:textSize="18sp"
-        android:text="Change Information"
+        android:text="Submit"
         android:onClick="onChangeInformationClick"
 
         android:layout_width="160dp"
@@ -47,7 +47,7 @@
 
         android:textColor="#5E45FF"
         android:textSize="18sp"
-        android:text="Back to Profile"
+        android:text="Back"
         android:onClick="onBack"
 
         android:layout_width="160dp"
