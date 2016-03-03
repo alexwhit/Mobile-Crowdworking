@@ -21,7 +21,7 @@ public class EditAccountActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_account);
         String pword = getIntent().getStringExtra("password");
-        if (!pword.isEmpty()) {
+        if (pword != null && !pword.isEmpty()) {
             EditText password = ((EditText)findViewById(R.id.signup_password));
             password.setText(pword);
         }
