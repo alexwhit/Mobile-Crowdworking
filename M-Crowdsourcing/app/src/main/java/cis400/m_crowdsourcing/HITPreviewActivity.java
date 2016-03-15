@@ -20,7 +20,10 @@ public class HITPreviewActivity extends ActionBarActivity {
         request_text.setText("Requester: " + requester);
         Double payment = intent.getDoubleExtra("reward", 0.0);
         TextView payment_text = (TextView) findViewById(R.id.payment);
-        payment_text.setText("Payment: " + payment.toString());
+        payment_text.setText("Payment: " + "$" + payment.toString());
+        while (payment_text.getText().length() < 14) {
+            payment_text.setText(payment_text.getText() + "0");
+        }
     }
 
 }
