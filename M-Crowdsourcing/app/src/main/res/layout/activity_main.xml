@@ -14,13 +14,16 @@
         android:layout_height="match_parent">
 
         <LinearLayout android:id="@+id/email_login_form" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:orientation="vertical">
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:layout_marginTop="350dp">
 
             <AutoCompleteTextView android:id="@+id/username" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:hint="@string/prompt_username"
                 android:inputType="textEmailAddress" android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@color/entry_text"/>
+                android:textColor="@color/entry_text"
+
+                />
 
             <EditText android:id="@+id/password" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:hint="@string/prompt_password"
@@ -28,12 +31,14 @@
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified" android:inputType="textPassword"
                 android:maxLines="1" android:singleLine="true"
-                android:textColor="@color/entry_text"/>
+                android:textColor="@color/entry_text"
+                android:layout_marginTop="5dp"/>
 
 
         <LinearLayout android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
             <Button
                 android:id="@+id/LogInButton"
 
