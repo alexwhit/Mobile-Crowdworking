@@ -12,21 +12,6 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <Button
-            android:id="@+id/profile_button"
-
-            android:textColor="#5E45FF"
-            android:textSize="18sp"
-            android:text="Profile"
-            android:onClick="onProfileClick"
-
-            android:layout_width="160dp"
-            android:layout_height="58dp"
-            android:background="@drawable/buttonshape"
-
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"/>
-
 
         <Button
             android:id="@+id/search_button"
@@ -40,8 +25,29 @@
             android:layout_height="58dp"
             android:background="@drawable/buttonshape"
 
-            android:layout_below="@+id/profile_button"
-            android:layout_centerHorizontal="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <Button
+            android:id="@+id/profile_button"
+
+            android:textColor="#5E45FF"
+            android:textSize="18sp"
+            android:text="Profile"
+            android:onClick="onProfileClick"
+
+            android:layout_width="160dp"
+            android:layout_height="58dp"
+            android:background="@drawable/buttonshape"
+            android:layout_below="@+id/search_button"
+
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            />
 
         <Button
             android:id="@+id/feedback_button"
@@ -55,8 +61,9 @@
             android:layout_height="58dp"
             android:background="@drawable/buttonshape"
 
-            android:layout_below="@+id/search_button"
-            android:layout_centerHorizontal="true"/>
+            android:layout_below="@+id/profile_button"
+            android:layout_centerHorizontal="true"
+            />
 
         </RelativeLayout>
 
