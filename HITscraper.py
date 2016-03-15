@@ -52,7 +52,7 @@ def main():
 					print('Reward: ' + reward)
 					groupID = form.find("input", {'name' : 'groupId'})['value']
 					print('Group id: ' + groupID)
-					
+				  	
 					anyObject = HIT(requester=requester, reward=float(reward[3:]), 
 									title=t.text.strip(), groupID=groupID)
 					anyObject.save()

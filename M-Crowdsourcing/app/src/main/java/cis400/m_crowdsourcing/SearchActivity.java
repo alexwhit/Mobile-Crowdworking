@@ -3,6 +3,7 @@ package cis400.m_crowdsourcing;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,12 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +77,7 @@ public class SearchActivity extends ListActivity {
 
         //get selected items
         ParseObject selectedValue = parsed.get(position);
-        /*WebDriver driver = new HtmlUnitDriver();
+        //WebDriver driver = new HtmlUnitDriver();
 
         Intent i = new Intent(this, HITPreviewActivity.class);
         i.putExtra("parse_id", selectedValue.getObjectId());
@@ -88,7 +95,7 @@ public class SearchActivity extends ListActivity {
        catch (Exception e) {
            System.out.println("exception in jsoup document connection");
            System.out.println(e.toString());
-        } */
+        }
         Intent intent = new Intent(
                 SearchActivity.this,
                 HITPreviewActivity.class);
@@ -121,11 +128,11 @@ public class SearchActivity extends ListActivity {
         }
     }
 
-    /*private class ParseSoupTask extends AsyncTask<URL, String, Long> {
+    private class ParseSoupTask extends AsyncTask<URL, String, Long> {
         protected Long doInBackground(URL... urls) {
             String preview_url = urls[0].toString();
             try {
-                String signature = "";
+                String instructions = "";
                 Connection connect = Jsoup.connect(preview_url);
 
                 try {
@@ -141,21 +148,8 @@ public class SearchActivity extends ListActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println(doc.toString());
 
-                Elements signatures = doc.select("input");
-                System.out.println(signatures.size());
-                System.out.println("signatures size just printed");
-                for (Element element : signatures) {
-                    System.out.println(element);
-                   // System.out.println("signature: " + element.attr("value"));
-                    //signature = element.attr("value");
-                }
-
-                Elements links = doc.select("a[id = hitExternalNextAcceptLink]");
-                for (Element element : links) {
-                    //System.out.println(element);
-                    System.out.println(element.attr("href") + "&signature=" + signature);
-                }
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -164,7 +158,7 @@ public class SearchActivity extends ListActivity {
             return new Long(0);
         }
 
-    }*/
+    }
 
 }
 

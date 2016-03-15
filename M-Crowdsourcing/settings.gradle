@@ -1,1 +1,1 @@
-include ':app', ':selendroid-standalone-0.17.0-with-dependencies', ':selenium-java-2.50.0'
+include ':app', ':selendroid-standalone-0.17.0-with-dependencies', ':selenium-java-2.50.0', ':aws-android-sdk-lambda-2.2.13'
