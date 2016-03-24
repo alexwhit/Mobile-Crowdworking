@@ -2,8 +2,8 @@ package cis400.m_crowdsourcing;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
+
 
 /*
  * Created by ~alex~ on 10/19
@@ -38,4 +38,7 @@ public class HITActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
